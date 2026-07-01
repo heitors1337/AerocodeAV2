@@ -227,6 +227,7 @@ export function Relatorios() {
                   </button>
                 </div>
               </form>
+            </div>
           </div>
         )}
 
