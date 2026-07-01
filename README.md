@@ -1,16 +1,53 @@
-# React + Vite
+# ✈️ Aerocode - (AV2)
+Sistema web de gestão de produção de aeronaves (SPA desenvolvida em React + TypeScript).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é o protótipo de interface gráfica (Front-end) navegável desenvolvido como requisito para a Avaliação 2 (AV2) da disciplina de Programação Orientada a Objetos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Como rodar o projeto localmente
 
-## React Compiler
+1. **Instale as dependências**
+   ```bash
+   npm install
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. **Inicie o servidor de desenvolvimento**
+   ```bash
+   npm run dev
+   ```
+   Acesse a aplicação em: **[http://localhost:5173](http://localhost:5173)**
 
-## Expanding the ESLint configuration
+3. **Build de produção**
+   ```bash
+   npm run build
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🔐 Acessos de Demonstração (Controle de Acesso - RBAC)
+Para avaliar o funcionamento da proteção de rotas e menus adaptativos, utilize os usuários abaixo (senha padrão `1234`):
+
+| Usuário | Perfil / Nível | Permissões de Acesso |
+| :--- | :--- | :--- |
+| **joao.silva** | Administrador | Acesso total ao sistema (inclui gerenciamento de funcionários e relatórios). |
+| **pedro.santos** | Engenheiro | Acesso a Dashboard, Aeronaves, Estoque, Etapas e Relatórios. |
+| **paulo.oliveira** | Engenheiro | Acesso a Dashboard, Aeronaves, Estoque, Etapas e Relatórios. |
+| **caio.souza** | Operador | Acesso limitado apenas às abas de Estoque e Etapas de Produção. |
+| **fernando.lima** | Operador | Acesso limitado apenas às abas de Estoque e Etapas de Produção. |
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+- **React.js** + **TypeScript** + **Vite**
+- **React Router DOM** (Roteamento dinâmico SPA e proteção de rotas)
+- **Vanilla CSS** (Interface moderna em Dark Mode)
+
+---
+
+## 📋 Regras de Negócio Implementadas
+- **Controle de Acesso (RBAC)**: Menus e rotas são filtrados dinamicamente com base no perfil de usuário logado.
+- **Sequência de etapas**: As etapas da produção seguem um fluxo encadeado até o status "Concluída".
+- **Gerenciamento de Funcionários**: Apenas o Administrador pode visualizar, cadastrar e remover funcionários do sistema (com proteção para não deletar a si mesmo).
+- **Dados Temporários**: Toda a persistência é mantida em memória (`sessionStorage` e estado do React), simulando um backend funcional sem necessidade de banco de dados ativo.
+- **Relatório**: Relatório de Interface disponível no diretório `/docs` (tanto em PDF quanto em markdown).
